@@ -1,0 +1,14 @@
+Well, this question is a little confuse, because i tryed use the next command:
+
+sudo docker --rm -v $(pwd)/text.log:/usr/src/app/text.log devopsdockeruh/simple-web-service
+
+And this not work correctly, i got this error msg :
+
+ <nil>
+ open /usr/src/app/text.log: is a directory
+
+
+
+So, i tryed use the next command, and finally, this work, but not like i thoughted, instead the command create a text.log in $pwd, the command inserted three folder, with the names: src, text.log, and usr. In file text.log, has the file text.log with the output.
+ sudo docker run --rm -it -v $(pwd):/usr/src/app/text.log -w /usr/src/app/text.log devopsdockeruh/simple-web-service
+ 
